@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joken007.github.io/quark-resource-library/sitemap.xml
