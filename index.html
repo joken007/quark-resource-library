@@ -109,7 +109,9 @@ a{color:inherit;text-decoration:none}
 .card:hover{border-color:#c8c8cd;box-shadow:0 2px 8px rgba(0,0,0,.045)}
 .card.hide{display:none}
 .card.dim{display:none}
-.card .cl{display:flex;flex-direction:column;flex:1;padding:12px 13px 11px;min-width:0;gap:8px}
+.card .cl{display:flex;flex-direction:column;flex:1;padding:12px 13px 11px;min-width:0;gap:8px;
+  text-decoration:none;color:inherit}
+.card .cl h3{text-decoration:none}
 .card .top{display:flex;align-items:flex-start;gap:9px}
 .card .bdg{flex:0 0 26px;width:26px;height:26px;border-radius:6px;
   background:var(--line2);color:var(--mid);
@@ -126,9 +128,9 @@ a{color:inherit;text-decoration:none}
 .card .meta span+span:before{content:"·";margin-right:8px;opacity:.55}
 /* 明确的行动按钮：用户一眼知道点这里能转存，不用猜整卡可点 */
 .go{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;font-size:12px;
-  font-weight:600;color:var(--acc);background:rgba(37,99,235,.07);
-  border:1px solid rgba(37,99,235,.16);border-radius:7px;align-self:flex-start;
-  transition:.13s;white-space:nowrap}
+  font-weight:600;color:var(--acc);background:rgba(37,99,235,.1);
+  border:1px solid rgba(37,99,235,.28);border-radius:7px;align-self:flex-start;
+  transition:.13s;white-space:nowrap;text-decoration:none}
 .card:hover .go{background:var(--acc);color:#fff;border-color:var(--acc)}
 .go::after{content:"→";font-size:12px;line-height:1}
 
