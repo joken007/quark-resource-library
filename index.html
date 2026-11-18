@@ -88,8 +88,12 @@ main{padding:14px 0 40px}
 .footcta{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 24px;text-align:center;margin:36px 0 0}
 .footcta h3{font-size:17px;margin-bottom:8px;font-weight:700}
 .footcta p{font-size:13.5px;color:var(--sub);margin-bottom:16px}
-.footcta a{display:inline-block;padding:12px 30px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:14.5px}
-.footcta a:hover{opacity:.92}
+.footcta .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.footcta a.go{display:inline-block;padding:12px 30px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:14.5px;border:none;font-family:inherit;cursor:pointer}
+.footcta a.go:hover{opacity:.92}
+.footcta button.share{padding:12px 26px;background:#fff;color:#374151;border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:14.5px;font-family:inherit;cursor:pointer;transition:.15s}
+.footcta button.share:hover{border-color:var(--blue);color:var(--blue)}
+.footcta button.share.done{background:#059669;color:#fff;border-color:#059669}
 footer{padding:28px 0;text-align:center;color:#9aa1ab;font-size:12px}
 footer a{color:#6b7280}
 </style>
@@ -125,7 +129,10 @@ footer a{color:#6b7280}
   <div class="footcta">
     <h3>每天都有新资源，想第一时间拿到？</h3>
     <p>频道每天推送新收录的资源，网页版是汇总索引。失效链接可留言补。</p>
-    <a href="https://t.me/kuake0007" target="_blank" rel="noopener">订阅 Telegram 频道 @kuake0007 →</a>
+    <div class="btns">
+      <a class="go" href="https://t.me/kuake0007" target="_blank" rel="noopener">订阅 Telegram 频道 →</a>
+      <button class="share" id="shareBtn">分享给朋友</button>
+    </div>
   </div>
 </div></main>
 
@@ -196,6 +203,27 @@ footer a{color:#6b7280}
   // 快捷键：/ 聚焦搜索
   document.addEventListener('keydown', function(e){
     if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+  });
+
+  // 分享：移动端走系统分享，桌面端复制带文案的链接
+  var SHARE_TEXT = '整理了 228 个网盘资源，学习资料/考研考公/电子书/课程都有，按分类排好了，点开直接转存：';
+
+  var shareBtn = document.getElementById('shareBtn');
+  if (shareBtn) shareBtn.addEventListener('click', function(){
+    var url = location.href;
+    var msg = SHARE_TEXT + '
+' + url;
+    if (navigator.share) {
+      navigator.share({ title: '夸克网盘资源库', text: SHARE_TEXT, url: url }).catch(function(){});
+      return;
+    }
+    var ok = function(){
+      shareBtn.textContent = '链接已复制，去粘贴吧'; shareBtn.classList.add('done');
+      setTimeout(function(){ shareBtn.textContent = '分享给朋友'; shareBtn.classList.remove('done'); }, 2200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(msg).then(ok).catch(function(){ fallback(msg, ok); });
+    } else { fallback(msg, ok); }
   });
 })();
 </script>
