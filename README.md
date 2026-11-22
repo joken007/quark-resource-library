@@ -5,6 +5,7 @@
 
 - **Telegram 频道（更新最快，每天 10+ 条带封面资源）**：https://t.me/kuake0007
 - **网页版门面（免安装，浏览器直接打开）**：https://joken007.github.io/quark-resource-library/
+- **原创指南《夸克网盘怎么用：资源搜索与学习资料整理指南》**：https://joken007.github.io/quark-resource-library/guide.html
 - **鹿小满表情包全集（原创免费）**：https://joken007.github.io/quark-resource-library/emoji.html
 
 ## 当前状态
