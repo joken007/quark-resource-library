@@ -30,12 +30,15 @@
 }
 </script>
 <style>
-  :root{--bg:#f7f7f9;--surf:#fff;--ink:#18181b;--mid:#71717a;--line:#e4e4e7;--acc:#2563eb;--success:#16a34a}
+  :root{--bg:#f7f7f9;--surf:#fff;--ink:#18181b;--mid:#71717a;--faint:#a1a1aa;--line:#e4e4e7;--acc:#2563eb;--success:#16a34a}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
   .wrap{max-width:900px;margin:0 auto;padding:60px 24px 80px}
   .kicker{font-size:13px;color:var(--mid);letter-spacing:.04em;margin:0 0 12px}
   h1{font-size:34px;line-height:1.35;margin:0 0 10px;font-weight:700;letter-spacing:-.01em}
+  /* 2026-11-25 修：正文用了 class="lead"，但样式表里从来没有 .lead 规则——
+     实际渲染掉回 15px，比 .sub 还小，首屏层级直接塌掉。这里补上 */
+  .lead{font-size:16.5px;line-height:1.8;color:var(--mid);margin:0 0 28px;max-width:66ch}
   .sub{font-size:16px;color:var(--mid);margin:0 0 28px;max-width:66ch}
   .panel{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:0 0 20px}
   .panel h2{font-size:17px;margin:0 0 16px;font-weight:600;display:flex;align-items:center;gap:10px}
@@ -80,6 +83,16 @@
         <a class="btn" href="https://t.me/kuake0007" target="_blank" rel="noopener">进入 Telegram 频道 →</a>
       </div>
       <div class="card">
+        <h3>夸克网盘怎么用 · 原创指南<span class="chip">原创</span></h3>
+        <p>转存与分享的正确姿势、找学习资料的几种方式、转存前的六项自查，以及 11 个分类是怎么分出来的。</p>
+        <a class="btn alt" href="guide.html" target="_blank" rel="noopener">读使用指南 →</a>
+      </div>
+      <div class="card">
+        <h3>常见问题 · 12 问<span class="chip">原创</span></h3>
+        <p>分享链接怎么用、失效了怎么办、多久更新一次、不装 Telegram 能不能看、手机和微信里怎么打开最快——逐条如实回答。</p>
+        <a class="btn alt" href="faq.html" target="_blank" rel="noopener">看常见问题 →</a>
+      </div>
+      <div class="card">
         <h3>X（推特）@NH20201202</h3>
         <p>可查看原创内容与夸克网盘推广信息。</p>
         <a class="btn" href="https://x.com/NH20201202" target="_blank" rel="noopener">去 X 看看 →</a>
@@ -121,6 +134,7 @@
       <span>在别处也能找到我：</span>
       <a href="emoji.html">鹿小满表情包全集</a> ·
       <a href="guide.html">夸克网盘使用指南</a> ·
+      <a href="faq.html">常见问题（12 问）</a> ·
       <a href="https://t.me/kuake0007" target="_blank" rel="noopener">Telegram 频道</a> ·
       <a href="https://x.com/NH20201202" target="_blank" rel="noopener">X @NH20201202</a> ·
       <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzI1MzU5ODY2OA==" target="_blank" rel="noopener">微信公众号「默里思安」</a> ·
